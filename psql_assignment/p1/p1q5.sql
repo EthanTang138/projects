@@ -1,0 +1,18 @@
+-- Ethan Tang, tangeth4, 1009681471
+-- a)
+SELECT p.SIN, p.FirstName, p.LastName, 
+       DATE_PART('year', CURRENT_DATE) - DATE_PART('year', p.DateOfBirth) AS Age
+FROM Pilot pi
+JOIN Person p ON pi.SIN = p.SIN
+LEFT JOIN Infraction i ON pi.SIN = i.SIN
+GROUP BY p.SIN, p.FirstName, p.LastName, p.DateOfBirth
+HAVING COUNT(i.SIN) < 3;
+
+-- b)
+SELECT pi.SIN, SUM(i.Demerit) AS "Total Points", 
+       SUM(i.Fine) AS "Total Fine"
+FROM Pilot pi
+JOIN Infraction i ON pi.SIN = i.SIN
+GROUP BY pi.SIN
+HAVING SUM(i.Demerit) >= 2
+ORDER BY SUM(i.Demerit) DESC, SUM(i.Fine) DESC;

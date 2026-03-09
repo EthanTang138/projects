@@ -1,0 +1,170 @@
+{
+  "type": "Program",
+  "statements": [
+    {
+      "type": "FunctionDef",
+      "name": "f",
+      "params": [
+        "n"
+      ],
+      "body": [
+        {
+          "type": "Assignment",
+          "name": "total",
+          "expr": {
+            "type": "Literal",
+            "value": 0
+          }
+        },
+        {
+          "type": "For",
+          "var": "i",
+          "stop": {
+            "type": "Var",
+            "name": "n"
+          },
+          "body": [
+            {
+              "type": "If",
+              "cond": {
+                "type": "Compare",
+                "op": ">",
+                "left": {
+                  "type": "Var",
+                  "name": "i"
+                },
+                "right": {
+                  "type": "Literal",
+                  "value": 2
+                }
+              },
+              "then_body": [
+                {
+                  "type": "Assignment",
+                  "name": "total",
+                  "expr": {
+                    "type": "BinOp",
+                    "op": "+",
+                    "left": {
+                      "type": "Var",
+                      "name": "total"
+                    },
+                    "right": {
+                      "type": "Var",
+                      "name": "i"
+                    }
+                  }
+                }
+              ],
+              "else_body": null
+            }
+          ]
+        },
+        {
+          "type": "Return",
+          "expr": {
+            "type": "Var",
+            "name": "total"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FunctionDef",
+      "name": "g",
+      "params": [
+        "x"
+      ],
+      "body": [
+        {
+          "type": "Return",
+          "expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "FuncCall",
+              "name": "f",
+              "args": [
+                {
+                  "type": "Var",
+                  "name": "x"
+                }
+              ]
+            },
+            "right": {
+              "type": "FuncCall",
+              "name": "f",
+              "args": [
+                {
+                  "type": "BinOp",
+                  "op": "+",
+                  "left": {
+                    "type": "Var",
+                    "name": "x"
+                  },
+                  "right": {
+                    "type": "Literal",
+                    "value": 1
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Assignment",
+      "name": "a",
+      "expr": {
+        "type": "FuncCall",
+        "name": "g",
+        "args": [
+          {
+            "type": "Literal",
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "type": "If",
+      "cond": {
+        "type": "Compare",
+        "op": ">",
+        "left": {
+          "type": "Var",
+          "name": "a"
+        },
+        "right": {
+          "type": "Literal",
+          "value": 5
+        }
+      },
+      "then_body": [
+        {
+          "type": "FuncCall",
+          "name": "print",
+          "args": [
+            {
+              "type": "Literal",
+              "value": "big"
+            }
+          ]
+        }
+      ],
+      "else_body": [
+        {
+          "type": "FuncCall",
+          "name": "print",
+          "args": [
+            {
+              "type": "Literal",
+              "value": "small"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

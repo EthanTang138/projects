@@ -1,0 +1,141 @@
+{
+  "type": "Program",
+  "statements": [
+    {
+      "type": "Assignment",
+      "name": "x",
+      "expr": {
+        "type": "Literal",
+        "value": 0
+      }
+    },
+    {
+      "type": "Assignment",
+      "name": "y",
+      "expr": {
+        "type": "Literal",
+        "value": 5
+      }
+    },
+    {
+      "type": "Assignment",
+      "name": "z",
+      "expr": {
+        "type": "Literal",
+        "value": true
+      }
+    },
+    {
+      "type": "While",
+      "cond": {
+        "type": "BinOp",
+        "op": "and",
+        "left": {
+          "type": "Compare",
+          "op": "<",
+          "left": {
+            "type": "Var",
+            "name": "x"
+          },
+          "right": {
+            "type": "Var",
+            "name": "y"
+          }
+        },
+        "right": {
+          "type": "Compare",
+          "op": "!=",
+          "left": {
+            "type": "Var",
+            "name": "y"
+          },
+          "right": {
+            "type": "Literal",
+            "value": 0
+          }
+        }
+      },
+      "body": [
+        {
+          "type": "Assignment",
+          "name": "x",
+          "expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "Var",
+              "name": "x"
+            },
+            "right": {
+              "type": "Literal",
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "Assignment",
+          "name": "z",
+          "expr": {
+            "type": "UnaryOp",
+            "op": "not",
+            "operand": {
+              "type": "Literal",
+              "value": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "If",
+      "cond": {
+        "type": "BinOp",
+        "op": "or",
+        "left": {
+          "type": "Compare",
+          "op": "==",
+          "left": {
+            "type": "Var",
+            "name": "x"
+          },
+          "right": {
+            "type": "Var",
+            "name": "y"
+          }
+        },
+        "right": {
+          "type": "Compare",
+          "op": "==",
+          "left": {
+            "type": "Var",
+            "name": "y"
+          },
+          "right": {
+            "type": "Literal",
+            "value": 0
+          }
+        }
+      },
+      "then_body": [
+        {
+          "type": "Assignment",
+          "name": "z",
+          "expr": {
+            "type": "Literal",
+            "value": 100
+          }
+        }
+      ],
+      "else_body": [
+        {
+          "type": "Assignment",
+          "name": "z",
+          "expr": {
+            "type": "Literal",
+            "value": 0
+          }
+        }
+      ]
+    }
+  ]
+}

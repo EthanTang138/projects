@@ -1,0 +1,39 @@
+EBNF Form
+
+Grammar:
+	integer = "0" | pos_digit {digit}
+	float   = digit {digit} "." [digit {digit}] | "." digit {digit}
+	boolean = "True" | "False"
+	string  = '"' {char} '"'
+	
+	identifier = letter {letter | digit | "_"}
+
+	pos_digit = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+	digit  = "0" | pos_digit
+
+	letter = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+ 	       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+ 	       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+ 	       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+ 	       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+ 	       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
+ 	       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
+ 	       | "x" | "y" | "z" 
+
+	char = ? any character except '"', '\', and newline ? | escape_seq
+	escape_seq  = "\" ( "\" | "'" | '"' | "n" | "t" | "r" | "0" | newline )
+
+	arithmetic_op = "+" | "-" | "*" | "/" 
+	comparison_op = "==" | "!=" | "<" | ">" | "<=" | ">="
+	assignment_op = "="
+
+	keyword   = "if" | "else" | "elif" | "while" | "for" | "in" 
+                  | "def" | "return" | "and" | "or" | "not"
+
+	delimiter = "(" | ")" | "," | ":"
+
+	newline = <ASCII LF> | <ASCII CR> <ASCII LF> | <ASCII CR>
+	whitespace = " " | <ASCII HT>
+
+	comment = "#" {comment_char}
+	comment_char = ? any char except newline ?

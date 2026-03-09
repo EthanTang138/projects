@@ -1,0 +1,14 @@
+Name: Abhin Tomar
+Student Number: 1008013622
+Group Members: Daniel Iseoluwa and Ethan Tang
+Sprint: 1
+
+Contributions:
+Abhin Tomar (40%):
+	- I worked on the base parser implementation and the example run script
+
+Daniel Iseoluwa (30%):
+	- Worked on the report (pdf) and context-free grammar (txt)
+
+Ethan Tang (30%):
+	- Worked on the indentation parsing and refined parser code

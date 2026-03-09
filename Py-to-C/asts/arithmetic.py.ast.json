@@ -1,0 +1,162 @@
+{
+  "type": "Program",
+  "statements": [
+    {
+      "type": "FunctionDef",
+      "name": "add",
+      "params": [
+        "x",
+        "y"
+      ],
+      "body": [
+        {
+          "type": "Return",
+          "expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "Var",
+              "name": "x"
+            },
+            "right": {
+              "type": "Var",
+              "name": "y"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "FunctionDef",
+      "name": "mul",
+      "params": [
+        "a",
+        "b"
+      ],
+      "body": [
+        {
+          "type": "Return",
+          "expr": {
+            "type": "BinOp",
+            "op": "*",
+            "left": {
+              "type": "Var",
+              "name": "a"
+            },
+            "right": {
+              "type": "Var",
+              "name": "b"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Assignment",
+      "name": "a",
+      "expr": {
+        "type": "Literal",
+        "value": 10
+      }
+    },
+    {
+      "type": "Assignment",
+      "name": "b",
+      "expr": {
+        "type": "UnaryOp",
+        "op": "-",
+        "operand": {
+          "type": "Literal",
+          "value": 5
+        }
+      }
+    },
+    {
+      "type": "Assignment",
+      "name": "c",
+      "expr": {
+        "type": "FuncCall",
+        "name": "add",
+        "args": [
+          {
+            "type": "Var",
+            "name": "a"
+          },
+          {
+            "type": "Var",
+            "name": "b"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Assignment",
+      "name": "d",
+      "expr": {
+        "type": "FuncCall",
+        "name": "mul",
+        "args": [
+          {
+            "type": "Var",
+            "name": "c"
+          },
+          {
+            "type": "Literal",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "type": "If",
+      "cond": {
+        "type": "Compare",
+        "op": ">",
+        "left": {
+          "type": "Var",
+          "name": "d"
+        },
+        "right": {
+          "type": "Literal",
+          "value": 20
+        }
+      },
+      "then_body": [
+        {
+          "type": "Assignment",
+          "name": "e",
+          "expr": {
+            "type": "BinOp",
+            "op": "-",
+            "left": {
+              "type": "Var",
+              "name": "d"
+            },
+            "right": {
+              "type": "Literal",
+              "value": 1
+            }
+          }
+        }
+      ],
+      "else_body": [
+        {
+          "type": "Assignment",
+          "name": "e",
+          "expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "Var",
+              "name": "d"
+            },
+            "right": {
+              "type": "Literal",
+              "value": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

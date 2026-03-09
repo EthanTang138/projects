@@ -1,0 +1,24 @@
+{
+  "type": "FunctionDef",
+  "name": "whitespace",
+  "params": [
+    "n"
+  ],
+  "body": [
+    {
+      "type": "Return",
+      "expr": {
+        "type": "BinOp",
+        "op": "+",
+        "left": {
+          "type": "Literal",
+          "value": 1
+        },
+        "right": {
+          "type": "Literal",
+          "value": 2
+        }
+      }
+    }
+  ]
+}

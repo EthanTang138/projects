@@ -1,0 +1,91 @@
+======================================================================
+LALR PARSER ANALYSIS
+======================================================================
+
+GRAMMAR RULES:
+----------------------------------------------------------------------
+0: <start : __start_plus_0>
+1: <statement : simple_statement>
+2: <statement : compound_statement>
+3: <simple_statement : assignment>
+4: <simple_statement : return_statement>
+5: <simple_statement : expr>
+6: <compound_statement : if_statement>
+7: <compound_statement : while_statement>
+8: <compound_statement : for_statement>
+9: <compound_statement : func_def>
+10: <assignment : NAME EQUAL expr>
+11: <return_statement : RETURN expr>
+12: <if_statement : IF expr COLON __start_plus_0>
+13: <if_statement : IF expr COLON __start_plus_0 ELSE COLON __start_plus_0>
+14: <while_statement : WHILE expr COLON __start_plus_0>
+15: <for_statement : FOR NAME IN RANGE LPAR expr RPAR COLON __start_plus_0>
+16: <func_def : DEF NAME LPAR params RPAR COLON __start_plus_0>
+17: <func_def : DEF NAME LPAR RPAR COLON __start_plus_0>
+18: <params : NAME __params_star_1>
+19: <params : NAME>
+20: <expr : or_expr>
+21: <or_expr : or_expr OR and_expr>
+22: <or_expr : and_expr>
+23: <and_expr : and_expr AND cmp_expr>
+24: <and_expr : cmp_expr>
+25: <cmp_expr : add_expr COMP_OP add_expr>
+26: <cmp_expr : add_expr>
+27: <add_expr : add_expr PLUS mul_expr>
+28: <add_expr : add_expr MINUS mul_expr>
+29: <add_expr : mul_expr>
+30: <mul_expr : mul_expr STAR factor>
+31: <mul_expr : mul_expr SLASH factor>
+32: <mul_expr : factor>
+33: <factor : NUMBER>
+34: <factor : STRING>
+35: <factor : BOOL>
+36: <factor : NAME>
+37: <factor : func_call>
+38: <factor : LPAR expr RPAR>
+39: <func_call : NAME LPAR args RPAR>
+40: <func_call : NAME LPAR RPAR>
+41: <args : expr __args_star_2>
+42: <args : expr>
+43: <__start_plus_0 : statement>
+44: <__start_plus_0 : __start_plus_0 statement>
+45: <__params_star_1 : COMMA NAME>
+46: <__params_star_1 : __params_star_1 COMMA NAME>
+47: <__args_star_2 : COMMA expr>
+48: <__args_star_2 : __args_star_2 COMMA expr>
+
+TERMINALS:
+----------------------------------------------------------------------
+WS_INLINE
+NEWLINE
+BOOL
+COMP_OP
+NUMBER
+STRING
+NAME
+COMMENT
+EQUAL
+RETURN
+IF
+COLON
+ELSE
+WHILE
+FOR
+IN
+RANGE
+LPAR
+RPAR
+DEF
+COMMA
+OR
+AND
+PLUS
+MINUS
+STAR
+SLASH
+
+PARSER STATUS:
+----------------------------------------------------------------------
+✓ Parser constructed successfully
+✓ No shift/reduce conflicts
+✓ No reduce/reduce conflicts

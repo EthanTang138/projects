@@ -1,0 +1,99 @@
+Context-Free Grammar — Py2Segfault
+Backus-Naur Form
+
+<program>           ::= <statement-list>
+
+<statement-list>    ::= <statement>
+                      | <statement-list> <statement>
+
+<statement>         ::= <simple-statement> NEWLINE
+                      | <compound-statement>
+
+<simple-statement>  ::= <assignment>
+                      | <return-statement>
+                      | <expr>
+
+<compound-statement> ::= <if-statement>
+                       | <while-statement>
+                       | <for-statement>
+                       | <func-def>
+
+<assignment>        ::= NAME "=" <expr>
+
+<return-statement>  ::= "return" <expr>
+
+<if-statement>      ::= "if" <expr> ":" <suite>
+                      | "if" <expr> ":" <suite> "else" ":" <suite>
+
+<while-statement>   ::= "while" <expr> ":" <suite>
+
+<for-statement>     ::= "for" NAME "in" "range" "(" <expr> ")" ":" <suite>
+
+<func-def>          ::= "def" NAME "(" ")" ":" <suite>
+                      | "def" NAME "(" <params> ")" ":" <suite>
+
+<suite>             ::= NEWLINE INDENT <statement-list> DEDENT
+
+<params>            ::= NAME
+                      | <params> "," NAME
+
+<expr>              ::= <or-expr>
+
+<or-expr>           ::= <and-expr>
+                      | <or-expr> "or" <and-expr>
+
+<and-expr>          ::= <not-expr>
+                      | <and-expr> "and" <not-expr>
+
+<not-expr>          ::= <cmp-expr>
+                      | "not" <not-expr>
+
+<cmp-expr>          ::= <add-expr>
+                      | <add-expr> COMP_OP <add-expr>
+
+<add-expr>          ::= <mul-expr>
+                      | <add-expr> "+" <mul-expr>
+                      | <add-expr> "-" <mul-expr>
+
+<mul-expr>          ::= <unary-expr>
+                      | <mul-expr> "*" <unary-expr>
+                      | <mul-expr> "/" <unary-expr>
+
+<unary-expr>        ::= <factor>
+                      | "-" <unary-expr>
+
+<factor>            ::= NUMBER
+                      | STRING
+                      | BOOL
+                      | NAME
+                      | <func-call>
+                      | "(" <expr> ")"
+
+<func-call>         ::= NAME "(" ")"
+                      | NAME "(" <args> ")"
+
+<args>              ::= <expr>
+                      | <args> "," <expr>
+
+
+NAME                ::= LETTER { LETTER | DIGIT | "_" }
+LETTER              ::= "a" | ... | "z" | "A" | ... | "Z" | "_"
+DIGIT               ::= "0" | ... | "9"
+
+NUMBER              ::= INT | FLOAT
+INT                 ::= DIGIT { DIGIT }
+FLOAT               ::= DIGIT { DIGIT } "." DIGIT { DIGIT }
+
+STRING              ::= "\"" { CHAR | ESCAPE } "\""
+CHAR                ::= any character except "\"", "\", or newline
+ESCAPE              ::= "\" any character
+
+BOOL                ::= "True" | "False"
+
+COMP_OP             ::= "==" | "!=" | "<" | ">" | "<=" | ">="
+
+COMMENT             ::= "#" { any character except newline }
+
+NEWLINE             ::= newline followed by optional whitespace
+INDENT              ::= increase in indentation level
+DEDENT              ::= decrease in indentation level

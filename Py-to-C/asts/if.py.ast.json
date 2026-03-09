@@ -1,0 +1,48 @@
+{
+  "type": "Program",
+  "statements": [
+    {
+      "type": "Assignment",
+      "name": "x",
+      "expr": {
+        "type": "Literal",
+        "value": 11
+      }
+    },
+    {
+      "type": "If",
+      "cond": {
+        "type": "Compare",
+        "op": ">",
+        "left": {
+          "type": "Var",
+          "name": "x"
+        },
+        "right": {
+          "type": "Literal",
+          "value": 10
+        }
+      },
+      "then_body": [
+        {
+          "type": "Assignment",
+          "name": "y",
+          "expr": {
+            "type": "Literal",
+            "value": 5
+          }
+        }
+      ],
+      "else_body": [
+        {
+          "type": "Assignment",
+          "name": "y",
+          "expr": {
+            "type": "Literal",
+            "value": 0
+          }
+        }
+      ]
+    }
+  ]
+}

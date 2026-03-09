@@ -1,0 +1,16 @@
+Name: Ethan Tang
+Student Number: 1009681471
+Group Members: Ahbin Tomar and Daniel Iseoluwa
+Sprint: 1
+
+Contributions:
+Ethan Tang (30%):
+	- Added indentation parsing
+	- Updated AST implementation to show types
+
+Daniel Iseoluwa (30%):
+	- Worked initial project documentation and context-free grammar file
+
+Abhin Tomar (40%):
+	- Worked on the base parser and scanner implementation
+

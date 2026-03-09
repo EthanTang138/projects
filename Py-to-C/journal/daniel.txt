@@ -1,0 +1,14 @@
+Name: Daniel Iseoluwa
+Student Number: 1007317958
+Group Members: Ahbin Tomar and Ethan Tang
+Sprint: 1
+
+Contributions:
+Daniel Iseoluwa (25%):
+	- I worked on the initial project documentation and context-free grammar
+
+Abhin Tomar (40%):
+	- Worked on the base parser implementation
+
+Ethan Tang (35%):
+	- Worked on the indentation parsing

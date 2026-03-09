@@ -1,0 +1,86 @@
+{
+  "type": "Program",
+  "statements": [
+    {
+      "type": "Assignment",
+      "name": "msg",
+      "expr": {
+        "type": "Literal",
+        "value": "hello world"
+      }
+    },
+    {
+      "type": "Assignment",
+      "name": "count",
+      "expr": {
+        "type": "Literal",
+        "value": 3
+      }
+    },
+    {
+      "type": "If",
+      "cond": {
+        "type": "Compare",
+        "op": "==",
+        "left": {
+          "type": "Var",
+          "name": "count"
+        },
+        "right": {
+          "type": "Literal",
+          "value": 3
+        }
+      },
+      "then_body": [
+        {
+          "type": "Assignment",
+          "name": "msg",
+          "expr": {
+            "type": "Literal",
+            "value": "done"
+          }
+        }
+      ],
+      "else_body": [
+        {
+          "type": "Assignment",
+          "name": "msg",
+          "expr": {
+            "type": "Literal",
+            "value": "not done"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FuncCall",
+      "name": "print",
+      "args": [
+        {
+          "type": "Var",
+          "name": "msg"
+        }
+      ]
+    },
+    {
+      "type": "For",
+      "var": "i",
+      "stop": {
+        "type": "Literal",
+        "value": 2
+      },
+      "body": [
+        {
+          "type": "FuncCall",
+          "name": "print",
+          "args": [
+            {
+              "type": "Var",
+              "name": "msg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "type": "Program",
+  "statements": [
+    {
+      "type": "FunctionDef",
+      "name": "square",
+      "params": [
+        "n"
+      ],
+      "body": [
+        {
+          "type": "Return",
+          "expr": {
+            "type": "BinOp",
+            "op": "*",
+            "left": {
+              "type": "Var",
+              "name": "n"
+            },
+            "right": {
+              "type": "Var",
+              "name": "n"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Assignment",
+      "name": "total",
+      "expr": {
+        "type": "Literal",
+        "value": 0
+      }
+    },
+    {
+      "type": "For",
+      "var": "i",
+      "stop": {
+        "type": "Literal",
+        "value": 5
+      },
+      "body": [
+        {
+          "type": "Assignment",
+          "name": "total",
+          "expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "Var",
+              "name": "total"
+            },
+            "right": {
+              "type": "FuncCall",
+              "name": "square",
+              "args": [
+                {
+                  "type": "Var",
+                  "name": "i"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "If",
+      "cond": {
+        "type": "Compare",
+        "op": ">=",
+        "left": {
+          "type": "Var",
+          "name": "total"
+        },
+        "right": {
+          "type": "Literal",
+          "value": 30
+        }
+      },
+      "then_body": [
+        {
+          "type": "Assignment",
+          "name": "total",
+          "expr": {
+            "type": "BinOp",
+            "op": "-",
+            "left": {
+              "type": "Var",
+              "name": "total"
+            },
+            "right": {
+              "type": "Literal",
+              "value": 10
+            }
+          }
+        }
+      ],
+      "else_body": null
+    }
+  ]
+}

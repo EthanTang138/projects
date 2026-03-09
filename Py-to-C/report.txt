@@ -1,0 +1,2 @@
+Design Decisions:
+	We are omitting some parts of the Python grammar to simplify what we need to implement, such as exponents in floats and single quoted strings.
